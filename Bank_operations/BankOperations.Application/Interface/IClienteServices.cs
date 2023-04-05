@@ -1,4 +1,5 @@
-﻿using BankOperations.Application.DTOs.Request;
+﻿using BankOperations.Application.DTOs.Common;
+using BankOperations.Application.DTOs.Request;
 using BankOperations.Application.DTOs.Response;
 using BankOperations.Application.Helpers.Wrappers;
 using System;
@@ -12,9 +13,9 @@ namespace BankOperations.Application.Interface
     public  interface IClienteServices
     {
         Response<List<ClienteDTOResponse>> GetClienteAll();
-        Response<ClienteDTOResponse> GetClienteById();
+        Response<ClienteDTOResponse> GetClienteById(int Id);
         Task<Response<int>> CreateClienteAsync(ClienteDTORequest ClienteRequest);
-        Task<Response<int>> DeleteClienteAsync();
-        Task<Response<int>> UpdateClienteAsync();
+        Task<Response<int>> DeleteClienteAsync(int Id);
+        Task<Response<int>> UpdateClienteAsync(ClienteDTOUpdateRequest ClienteUpdateRequest);
     }
 }

@@ -1,4 +1,5 @@
-﻿using BankOperations.Persistence;
+﻿using BankOperations.Application;
+using BankOperations.Persistence;
 
 namespace BankOperations.Presentation.Handlers
 {
@@ -8,6 +9,7 @@ namespace BankOperations.Presentation.Handlers
         {
 
             builder.Services.AddPersitenceInfraestructure(builder.Configuration);
+            builder.Services.AddAplicationLayer();
 
         }
 

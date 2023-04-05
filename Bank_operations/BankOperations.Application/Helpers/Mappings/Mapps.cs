@@ -14,12 +14,15 @@ namespace BankOperations.Application.Helpers.Mappings
     {
         public Mapps()
         {
-            #region Commands
+            #region Entity
             CreateMap<ClienteDTORequest, Cliente>()
                 .ForMember(x => x.Id, opt => opt.Ignore())
                 .ForMember(x => x.Movimientos, opt => opt.Ignore())
                 .ForMember(x => x.Cuenta, opt => opt.Ignore());
 
+            CreateMap<ClienteDTOUpdateRequest, Cliente>()
+                .ForMember(x => x.Movimientos, opt => opt.Ignore())
+                .ForMember(x => x.Cuenta, opt => opt.Ignore());
             //CreateMap<CreateCuentaCommand, Cuenta>()
             //    .ForMember(x => x.Id, opt => opt.Ignore())
             //    .ForMember(x => x.Movimientos, opt => opt.Ignore())
@@ -32,6 +35,7 @@ namespace BankOperations.Application.Helpers.Mappings
             //    .ForMember(x => x.IdClienteNavigation, opt => opt.Ignore())
             //    .ForMember(x => x.IdCuentaNavigation, opt => opt.Ignore());
             #endregion
+
 
             #region DTOs
             CreateMap<Cliente, ClienteDTOResponse>();

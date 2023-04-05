@@ -32,12 +32,7 @@ namespace BankOperations.Presentation.Handlers
                     case ApiException e:
                         //custon application error
                         response.StatusCode = (int)HttpStatusCode.BadRequest;
-                        break;
-                    //case Application.Exceptions.ValidationsException e:
-                    //    //custon application error
-                    //    response.StatusCode = (int)HttpStatusCode.BadRequest;
-                    //    responseModel.Errors = e.Errors;
-                    //    break;
+                        break;                  
                     case KeyNotFoundException e:
                         //not fount error
                         response.StatusCode = (int)HttpStatusCode.NotFound;

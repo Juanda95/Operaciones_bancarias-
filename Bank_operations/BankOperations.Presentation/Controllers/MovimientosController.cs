@@ -5,7 +5,7 @@ namespace BankOperations.Presentation.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CuentaController : ControllerBase
+    public class MovimientosController : ControllerBase
     {
     }
 }

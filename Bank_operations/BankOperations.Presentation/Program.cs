@@ -14,7 +14,6 @@ namespace BankOperations.Presentation
 
             #region ServiceExtensions            
             ServiceExtensionsHandler.ServiceExtensionsConfig(builder);
-            //builder.Services.AddPersitenceInfraestructure(builder.Configuration);
             #endregion
            
             // Add services to the container.

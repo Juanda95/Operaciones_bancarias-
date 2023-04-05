@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using Azure.Core;
+using BankOperations.Application.DTOs.Common;
 using BankOperations.Application.DTOs.Request;
 using BankOperations.Application.DTOs.Response;
 using BankOperations.Application.Helpers.Wrappers;
@@ -24,36 +26,119 @@ namespace BankOperations.Application.Services
         #endregion
 
         #region Methods
-
-        #endregion
         public async Task<Response<int>> CreateClienteAsync(ClienteDTORequest ClienteRequest)
         {
-            Cliente nuevoCliente = _mapper.Map<Cliente>(ClienteRequest);
-            Cliente data = _unitOfWork.ClienteRepository.Add(nuevoCliente);
-            bool save = await _unitOfWork.Save() > 0;
+            try
+            {
+                Cliente nuevoCliente = _mapper.Map<Cliente>(ClienteRequest);
+                Cliente data = _unitOfWork.ClienteRepository.Add(nuevoCliente);
+                bool save = await _unitOfWork.Save() > 0;
+                return save ? new Response<int>(data.Id) : throw new Exception($"Acurrido un error en el proceso de guardado");
+            }
+            catch (Exception ex)
+            {
+                //crear auditoria 
+                throw new Exception(ex.Message);
+            }
 
-            return save ? new Response<int>(data.Id): throw new Exception($"No se pudo Guardar el dato");
+        }
 
-        } 
-
-        public Task<Response<int>> DeleteClienteAsync()
+        public async Task<Response<int>> DeleteClienteAsync(int Id)
         {
-            throw new NotImplementedException();
+          
+            try
+            {
+                Cliente Cliente = _unitOfWork.ClienteRepository.FirstOrDefault(x => x.Id.Equals(Id));
+
+                if (Cliente == null)
+                {
+                    throw new KeyNotFoundException($"Registro no encontrado con el id {Id}");
+                }
+                else
+                {
+                    _unitOfWork.ClienteRepository.Delete(Id);
+                    bool save = await _unitOfWork.Save() > 0;
+                    return save ? new Response<int>(Id) : throw new Exception($"Acurrido un error en el proceso de Eliminado por favor intente de nuevo");
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
+
         }
 
         public Response<List<ClienteDTOResponse>> GetClienteAll()
         {
-            throw new NotImplementedException();
+            try
+            {
+                List<Cliente> Clientes = _unitOfWork.ClienteRepository.GetAll().ToList();
+                List<ClienteDTOResponse> clientesDTO = _mapper.Map<List<ClienteDTOResponse>>(Clientes);
+                return new Response<List<ClienteDTOResponse>>(clientesDTO);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+
+
         }
 
-        public Response<ClienteDTOResponse> GetClienteById()
+        public Response<ClienteDTOResponse> GetClienteById(int Id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                Cliente cliente = _unitOfWork.ClienteRepository.FirstOrDefault(x => x.Id.Equals(Id));
+                if (cliente == null)
+                {
+                    throw new KeyNotFoundException($"Registro no encontrado con el id {Id}");
+                }
+                else
+                {
+                    ClienteDTOResponse ClienteDto = _mapper.Map<ClienteDTOResponse>(cliente);
+                    return new Response<ClienteDTOResponse>(ClienteDto);
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
+
         }
 
-        public Task<Response<int>> UpdateClienteAsync()
+        public async Task<Response<int>> UpdateClienteAsync(ClienteDTOUpdateRequest ClienteUpdateRequest)
         {
-            throw new NotImplementedException();
+            try
+            {
+                Cliente Cliente = _unitOfWork.ClienteRepository.FirstOrDefault(x => x.Id.Equals(ClienteUpdateRequest.Id));
+
+                if (Cliente == null)
+                {
+                    throw new KeyNotFoundException($"Registro no encontrado con el id {ClienteUpdateRequest.Id}");
+                }
+                else
+                {
+                     Cliente = _mapper.Map<Cliente>(ClienteUpdateRequest);
+
+                    _unitOfWork.ClienteRepository.Update(Cliente);
+
+                    bool save = await _unitOfWork.Save() > 0;
+                    return save ? new Response<int>(Cliente.Id) : throw new Exception($"Acurrido un error en el proceso de Actualizacion intente nuevamente");
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
+
         }
+
+        #endregion
+
     }
 }

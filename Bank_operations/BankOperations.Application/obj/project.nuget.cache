@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "YwQ4BX4NYUoTHsju/85mkAWMsfJ01qFEWxfBXAQGkVEssye6g6ciAWDOWB9yxm0sPY8/btMr+ALqvurtemETmg==",
+  "dgSpecHash": "uhG2DadzX3IWItaSoE6xnzSd/2B2nJCIDz4hJydhJjeFGRozi5EmgRZJ8LfVHigpGfQJ+eBldMjTg6swXTvkow==",
   "success": true,
   "projectFilePath": "C:\\Users\\juan.dmunoz\\Desktop\\Operaciones bancarias nueva app\\Operaciones_bancarias-\\Bank_operations\\BankOperations.Application\\BankOperations.Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\juan.dmunoz\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
+    "C:\\Users\\juan.dmunoz\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.0\\automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg.sha512",
     "C:\\Users\\juan.dmunoz\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\juan.dmunoz\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
     "C:\\Users\\juan.dmunoz\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",

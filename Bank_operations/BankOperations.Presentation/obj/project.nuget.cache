@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "MGLl2LQkBwDl0Y2MguBWS8lEFFoqJhLVBibu+iG0JD1+ZJ/ie6/a6SpeicKXWz/sf6p1Pwfa9O8r+xmQH+zthA==",
+  "dgSpecHash": "Op9rhVap5ueui4STnOz5lHQri5TBfsuKTSKgQugiWREK8/VcRb0ZbB505CEgy49tNjqIvSdjOpWrABJGvdbnBA==",
   "success": true,
   "projectFilePath": "C:\\Users\\juan.dmunoz\\Desktop\\Operaciones bancarias nueva app\\Operaciones_bancarias-\\Bank_operations\\BankOperations.Presentation\\BankOperations.Presentation.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\juan.dmunoz\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
+    "C:\\Users\\juan.dmunoz\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.0\\automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg.sha512",
     "C:\\Users\\juan.dmunoz\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\juan.dmunoz\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
     "C:\\Users\\juan.dmunoz\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
