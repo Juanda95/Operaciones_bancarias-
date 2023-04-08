@@ -1,13 +1,9 @@
 ﻿using BankOperations.Domain.Entities;
 using BankOperations.Persistence.Contexts;
-using BankOperations.Persistence.Repository.Interface;
 using BankOperations.Persistence.Repository;
+using BankOperations.Persistence.Repository.Interface;
 using BankOperations.Persistence.UnitOfWork.Interface;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore.Storage;
 
 namespace BankOperations.Persistence.UnitOfWork
 {
@@ -80,5 +76,6 @@ namespace BankOperations.Persistence.UnitOfWork
 
         public async Task<int> Save() => await _dataContext.SaveChangesAsync();
 
+        public async Task<IDbContextTransaction> BeginTransactionAsync() { return await _dataContext.Database.BeginTransactionAsync(); }
     }
 }

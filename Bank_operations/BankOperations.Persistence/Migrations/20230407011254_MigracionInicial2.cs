@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace BankOperations.Persistence.Migrations
 {
     /// <inheritdoc />
-    public partial class MigracionInicial : Migration
+    public partial class MigracionInicial2 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -40,7 +40,7 @@ namespace BankOperations.Persistence.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK__Persona__234er45676688", x => x.Id);
+                    table.PrimaryKey("PK__Persona__234er45676680", x => x.Id);
                     table.ForeignKey(
                         name: "FK_Clientes_Personas_Id",
                         column: x => x.Id,
@@ -92,13 +92,13 @@ namespace BankOperations.Persistence.Migrations
                         name: "FK_Movimientos_Cliente",
                         column: x => x.IdCliente,
                         principalTable: "Clientes",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_Movimientos_Cuenta",
                         column: x => x.IdCuenta,
                         principalTable: "Cuentas",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(

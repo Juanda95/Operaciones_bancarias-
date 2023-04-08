@@ -11,6 +11,8 @@ namespace BankOperations.Application
         {
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddTransient<IClienteServices, ClienteServices>();
+            services.AddTransient<ICuentaServices, CuentaServices>();
+            services.AddTransient<IMovimientoServices, MovimientoServices>();
         }   
     }
 }

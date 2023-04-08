@@ -38,6 +38,7 @@ namespace BankOperations.Presentation.Handlers
                         response.StatusCode = (int)HttpStatusCode.NotFound;
                         break;
                     default:
+                        // auditoria
                         // unhandled error
                         response.StatusCode = (int)HttpStatusCode.InternalServerError;
                         break;

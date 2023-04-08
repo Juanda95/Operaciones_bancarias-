@@ -6,10 +6,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BankOperations.Application.DTOs.Request
+namespace BankOperations.Application.DTOs.Request.Cliente
 {
     public class PersonaDTORequest
-    {   
+    {
         [Required(AllowEmptyStrings = false, ErrorMessage = "El nombre es requerido")]
         [DisplayFormat(ConvertEmptyStringToNull = false)]
         [MaxLength(50, ErrorMessage = "El nombre debe ser menor a 50 caracteres")]

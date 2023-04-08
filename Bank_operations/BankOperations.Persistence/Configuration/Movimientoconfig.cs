@@ -26,11 +26,12 @@ namespace BankOperations.Persistence.Configuration
 
             builder.HasOne(d => d.IdClienteNavigation).WithMany(p => p.Movimientos)
                 .HasForeignKey(d => d.IdCliente)
+                .OnDelete(DeleteBehavior.NoAction)
                 .HasConstraintName("FK_Movimientos_Cliente");
 
             builder.HasOne(d => d.IdCuentaNavigation).WithMany(p => p.Movimientos)
                 .HasForeignKey(d => d.IdCuenta)
-                .OnDelete(DeleteBehavior.NoAction)
+                .OnDelete(DeleteBehavior.Cascade)
                 .HasConstraintName("FK_Movimientos_Cuenta");
         }
     }

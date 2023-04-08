@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
-using BankOperations.Application.DTOs.Request;
+using BankOperations.Application.DTOs.Request.Cliente;
+using BankOperations.Application.DTOs.Request.Cuenta;
+using BankOperations.Application.DTOs.Request.Movimiento;
 using BankOperations.Application.DTOs.Response;
 using BankOperations.Domain.Entities;
 using System;
@@ -14,7 +16,7 @@ namespace BankOperations.Application.Helpers.Mappings
     {
         public Mapps()
         {
-            #region Entity
+            #region Entity Request
             CreateMap<ClienteDTORequest, Cliente>()
                 .ForMember(x => x.Id, opt => opt.Ignore())
                 .ForMember(x => x.Movimientos, opt => opt.Ignore())
@@ -23,24 +25,35 @@ namespace BankOperations.Application.Helpers.Mappings
             CreateMap<ClienteDTOUpdateRequest, Cliente>()
                 .ForMember(x => x.Movimientos, opt => opt.Ignore())
                 .ForMember(x => x.Cuenta, opt => opt.Ignore());
-            //CreateMap<CreateCuentaCommand, Cuenta>()
-            //    .ForMember(x => x.Id, opt => opt.Ignore())
-            //    .ForMember(x => x.Movimientos, opt => opt.Ignore())
-            //    .ForMember(x => x.IdClienteNavigation, opt => opt.Ignore());
 
-            //CreateMap<CreateMovimientoCommand, Movimiento>()
-            //    .ForMember(x => x.Id, opt => opt.Ignore())
-            //    .ForMember(x => x.TipoMovimiento, opt => opt.Ignore())
-            //    .ForMember(x => x.Saldo, opt => opt.Ignore())
-            //    .ForMember(x => x.IdClienteNavigation, opt => opt.Ignore())
-            //    .ForMember(x => x.IdCuentaNavigation, opt => opt.Ignore());
+            CreateMap<CuentaDTORequest, Cuenta>()
+                .ForMember(x => x.Id, opt => opt.Ignore())
+                .ForMember(x => x.Movimientos, opt => opt.Ignore())
+                .ForMember(x => x.IdClienteNavigation, opt => opt.Ignore());
+
+            CreateMap<CuentaDTOUpdateRequest, Cuenta>()
+                .ForMember(x => x.Movimientos, opt => opt.Ignore())
+                .ForMember(x => x.IdClienteNavigation, opt => opt.Ignore());
+
+            CreateMap<MovimientoDTORequest, Movimiento>()
+                .ForMember(x => x.Id, opt => opt.Ignore())
+                .ForMember(x => x.TipoMovimiento, opt => opt.Ignore())
+                .ForMember(x => x.Saldo, opt => opt.Ignore())
+                .ForMember(x => x.IdClienteNavigation, opt => opt.Ignore())
+                .ForMember(x => x.IdCuentaNavigation, opt => opt.Ignore());
+
+            CreateMap<MovimientoDTOUpdateRequest, Movimiento>()
+                .ForMember(x => x.TipoMovimiento, opt => opt.Ignore())
+                .ForMember(x => x.Saldo, opt => opt.Ignore())
+                .ForMember(x => x.IdClienteNavigation, opt => opt.Ignore())
+                .ForMember(x => x.IdCuentaNavigation, opt => opt.Ignore());
             #endregion
 
 
-            #region DTOs
+            #region DTOs Response
             CreateMap<Cliente, ClienteDTOResponse>();
-            //CreateMap<Cuenta, CuentaDTO>();
-            //CreateMap<Movimiento, MovimientoDTO>();
+            CreateMap<Cuenta, CuentaDTOResponse>();
+            CreateMap<Movimiento, MovimientoDTOResponse>();
             #endregion
         }
 

@@ -1,7 +1,5 @@
 ﻿using AutoMapper;
-using Azure.Core;
-using BankOperations.Application.DTOs.Common;
-using BankOperations.Application.DTOs.Request;
+using BankOperations.Application.DTOs.Request.Cliente;
 using BankOperations.Application.DTOs.Response;
 using BankOperations.Application.Helpers.Wrappers;
 using BankOperations.Application.Interface;
@@ -63,10 +61,14 @@ namespace BankOperations.Application.Services
                 }
 
             }
-            catch (Exception ex)
+            catch (KeyNotFoundException)
+            {
+                throw;
+            }
+            catch (Exception)
             {
 
-                throw new Exception(ex.Message);
+                throw;
             }
 
         }

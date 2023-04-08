@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BankOperations.Persistence.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20230404225950_MigracionInicial")]
-    partial class MigracionInicial
+    [Migration("20230407011254_MigracionInicial2")]
+    partial class MigracionInicial2
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -190,14 +190,14 @@ namespace BankOperations.Persistence.Migrations
                     b.HasOne("BankOperations.Domain.Entities.Cliente", "IdClienteNavigation")
                         .WithMany("Movimientos")
                         .HasForeignKey("IdCliente")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired()
                         .HasConstraintName("FK_Movimientos_Cliente");
 
                     b.HasOne("BankOperations.Domain.Entities.Cuenta", "IdCuentaNavigation")
                         .WithMany("Movimientos")
                         .HasForeignKey("IdCuenta")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired()
                         .HasConstraintName("FK_Movimientos_Cuenta");
 

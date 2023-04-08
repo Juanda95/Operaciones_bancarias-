@@ -187,14 +187,14 @@ namespace BankOperations.Persistence.Migrations
                     b.HasOne("BankOperations.Domain.Entities.Cliente", "IdClienteNavigation")
                         .WithMany("Movimientos")
                         .HasForeignKey("IdCliente")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired()
                         .HasConstraintName("FK_Movimientos_Cliente");
 
                     b.HasOne("BankOperations.Domain.Entities.Cuenta", "IdCuentaNavigation")
                         .WithMany("Movimientos")
                         .HasForeignKey("IdCuenta")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired()
                         .HasConstraintName("FK_Movimientos_Cuenta");
 

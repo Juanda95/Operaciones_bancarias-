@@ -1,10 +1,6 @@
 ﻿using BankOperations.Domain.Entities;
 using BankOperations.Persistence.Repository.Interface;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore.Storage;
 
 namespace BankOperations.Persistence.UnitOfWork.Interface
 {
@@ -15,6 +11,7 @@ namespace BankOperations.Persistence.UnitOfWork.Interface
         IRepository<Movimiento> MovimientoRepository { get; }
         IRepository<Persona> PersonaRepository { get; }
 
+        Task<IDbContextTransaction> BeginTransactionAsync();
 
         Task<int> Save();
     }

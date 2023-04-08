@@ -1,11 +1,6 @@
-﻿using BankOperations.Application.DTOs.Common;
-using BankOperations.Application.DTOs.Request;
+﻿using BankOperations.Application.DTOs.Request.Cliente;
 using BankOperations.Application.Interface;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Data;
 
 namespace BankOperations.Presentation.Controllers
 {
