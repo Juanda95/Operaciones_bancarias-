@@ -1,0 +1,155 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\juan.dmunoz\\Desktop\\Operaciones bancarias nueva app\\Operaciones_bancarias-\\Bank_operations\\BankOperations.Domain\\BankOperations.Domain.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\juan.dmunoz\\Desktop\\Operaciones bancarias nueva app\\Operaciones_bancarias-\\Bank_operations\\BankOperations.Domain\\BankOperations.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\juan.dmunoz\\Desktop\\Operaciones bancarias nueva app\\Operaciones_bancarias-\\Bank_operations\\BankOperations.Domain\\BankOperations.Domain.csproj",
+        "projectName": "BankOperations.Application",
+        "projectPath": "C:\\Users\\juan.dmunoz\\Desktop\\Operaciones bancarias nueva app\\Operaciones_bancarias-\\Bank_operations\\BankOperations.Domain\\BankOperations.Domain.csproj",
+        "packagesPath": "C:\\Users\\juan.dmunoz\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\juan.dmunoz\\Desktop\\Operaciones bancarias nueva app\\Operaciones_bancarias-\\Bank_operations\\BankOperations.Application\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\juan.dmunoz\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\juan.dmunoz\\Desktop\\Operaciones bancarias nueva app\\Operaciones_bancarias-\\Bank_operations\\BankOperations.Domain\\BankOperations.Domain.csproj": {
+                "projectPath": "C:\\Users\\juan.dmunoz\\Desktop\\Operaciones bancarias nueva app\\Operaciones_bancarias-\\Bank_operations\\BankOperations.Domain\\BankOperations.Domain.csproj"
+              },
+              "C:\\Users\\juan.dmunoz\\Desktop\\Operaciones bancarias nueva app\\Operaciones_bancarias-\\Bank_operations\\BankOperations.Persistence\\BankOperations.Persistence.csproj": {
+                "projectPath": "C:\\Users\\juan.dmunoz\\Desktop\\Operaciones bancarias nueva app\\Operaciones_bancarias-\\Bank_operations\\BankOperations.Persistence\\BankOperations.Persistence.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\juan.dmunoz\\Desktop\\Operaciones bancarias nueva app\\Operaciones_bancarias-\\Bank_operations\\BankOperations.Persistence\\BankOperations.Persistence.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\juan.dmunoz\\Desktop\\Operaciones bancarias nueva app\\Operaciones_bancarias-\\Bank_operations\\BankOperations.Persistence\\BankOperations.Persistence.csproj",
+        "projectName": "BankOperations.Persistence",
+        "projectPath": "C:\\Users\\juan.dmunoz\\Desktop\\Operaciones bancarias nueva app\\Operaciones_bancarias-\\Bank_operations\\BankOperations.Persistence\\BankOperations.Persistence.csproj",
+        "packagesPath": "C:\\Users\\juan.dmunoz\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\juan.dmunoz\\Desktop\\Operaciones bancarias nueva app\\Operaciones_bancarias-\\Bank_operations\\BankOperations.Persistence\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\juan.dmunoz\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\juan.dmunoz\\Desktop\\Operaciones bancarias nueva app\\Operaciones_bancarias-\\Bank_operations\\BankOperations.Domain\\BankOperations.Domain.csproj": {
+                "projectPath": "C:\\Users\\juan.dmunoz\\Desktop\\Operaciones bancarias nueva app\\Operaciones_bancarias-\\Bank_operations\\BankOperations.Domain\\BankOperations.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[7.0.4, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.4, )"
+            },
+            "Microsoft.Extensions.Options.ConfigurationExtensions": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

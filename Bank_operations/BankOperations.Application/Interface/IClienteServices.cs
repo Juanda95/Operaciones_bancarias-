@@ -8,7 +8,7 @@ namespace BankOperations.Application.Interface
     {
         Response<List<ClienteDTOResponse>> GetClienteAll();
         Response<ClienteDTOResponse> GetClienteById(int Id);
-        Task<Response<int>> CreateClienteAsync(ClienteDTORequest ClienteRequest);
+        Task<Response<bool>> CreateClienteAsync(ClienteDTORequest ClienteRequest);
         Task<Response<int>> DeleteClienteAsync(int Id);
         Task<Response<int>> UpdateClienteAsync(ClienteDTOUpdateRequest ClienteUpdateRequest);
     }

@@ -25,6 +25,6 @@ namespace BankOperations.Application.DTOs.Response
 
         public string Contrasena { get; set; } = null!;
 
-        public string Estado { get; set; } = null!;
+        public bool Estado { get; set; }
     }
 }

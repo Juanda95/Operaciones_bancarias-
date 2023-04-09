@@ -14,7 +14,7 @@ namespace BankOperations.Application.Interface
     {
         Response<List<CuentaDTOResponse>> GetCuentaAll();
         Response<CuentaDTOResponse> GetCuentaById(int Id);
-        Task<Response<int>> CreateCuentaAsync(CuentaDTORequest CuentaRequest);
+        Task<Response<bool>> CreateCuentaAsync(CuentaDTORequest CuentaRequest);
         Task<Response<int>> DeleteCuentaAsync(int Id);
         Task<Response<int>> UpdateCuentaAsync(CuentaDTOUpdateRequest CuentaUpdateRequest);
     }

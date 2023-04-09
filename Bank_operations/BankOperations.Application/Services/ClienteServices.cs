@@ -24,19 +24,19 @@ namespace BankOperations.Application.Services
         #endregion
 
         #region Methods
-        public async Task<Response<int>> CreateClienteAsync(ClienteDTORequest ClienteRequest)
+        public async Task<Response<bool>> CreateClienteAsync(ClienteDTORequest ClienteRequest)
         {
             try
             {
                 Cliente nuevoCliente = _mapper.Map<Cliente>(ClienteRequest);
-                Cliente data = _unitOfWork.ClienteRepository.Add(nuevoCliente);
+                 _unitOfWork.ClienteRepository.Insert(nuevoCliente);
                 bool save = await _unitOfWork.Save() > 0;
-                return save ? new Response<int>(data.Id) : throw new Exception($"Acurrido un error en el proceso de guardado");
+                return save ? new Response<bool>(save) : throw new Exception($"Acurrido un error en el proceso de guardado");
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 //crear auditoria 
-                throw new Exception(ex.Message);
+                throw ;
             }
 
         }
@@ -85,8 +85,6 @@ namespace BankOperations.Application.Services
             {
                 throw new Exception(ex.Message);
             }
-
-
         }
 
         public Response<ClienteDTOResponse> GetClienteById(int Id)
@@ -104,10 +102,14 @@ namespace BankOperations.Application.Services
                     return new Response<ClienteDTOResponse>(ClienteDto);
                 }
             }
-            catch (Exception ex)
+            catch (KeyNotFoundException)
+            {
+                throw;
+            }
+            catch (Exception)
             {
 
-                throw new Exception(ex.Message);
+                throw;
             }
 
         }
@@ -132,10 +134,10 @@ namespace BankOperations.Application.Services
                     return save ? new Response<int>(Cliente.Id) : throw new Exception($"Acurrido un error en el proceso de Actualizacion intente nuevamente");
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
-                throw new Exception(ex.Message);
+                throw ;
             }
 
         }

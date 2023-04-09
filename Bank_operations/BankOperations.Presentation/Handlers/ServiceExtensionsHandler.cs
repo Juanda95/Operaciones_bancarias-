@@ -13,5 +13,11 @@ namespace BankOperations.Presentation.Handlers
 
         }
 
+        public static void ServiceExtensionsConfigMigrations(IServiceScopeFactory scopeFactory)
+        {
+            ServiceExtensionsInfraestructure.AddMigrationsInfraestructure(scopeFactory);
+
+        }
+
     }
 }

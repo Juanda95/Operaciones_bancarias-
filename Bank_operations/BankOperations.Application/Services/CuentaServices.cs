@@ -24,7 +24,7 @@ namespace BankOperations.Application.Services
         #endregion
 
         #region Methods
-        public async Task<Response<int>> CreateCuentaAsync(CuentaDTORequest CuentaRequest)
+        public async Task<Response<bool>> CreateCuentaAsync(CuentaDTORequest CuentaRequest)
         {
             using (var db = await _unitOfWork.BeginTransactionAsync())
             {
@@ -49,7 +49,7 @@ namespace BankOperations.Application.Services
                     _unitOfWork.MovimientoRepository.Add(MovimientoInicial);
                     save = await _unitOfWork.Save() > 0;
                     await db.CommitAsync();
-                    return save ? new Response<int>(data.Id) : throw new Exception($"A ocurrido un error en el proceso de guardado");
+                    return save ? new Response<bool>(save) : throw new Exception($"A ocurrido un error en el proceso de guardado");
                 }
                 catch (KeyNotFoundException)
                 {

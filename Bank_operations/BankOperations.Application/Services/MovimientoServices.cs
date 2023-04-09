@@ -152,7 +152,7 @@ namespace BankOperations.Application.Services
                                                                                        x.IdCuentaNavigation.TipoCuenta.Equals(TipoCuenta),
                                                                                        p => p.IdClienteNavigation,
                                                                                        p => p.IdCuentaNavigation).OrderByDescending(x => x.Id).FirstOrDefault() ?? null!;
-                throw new Exception("prueba");
+               
                 if (movimiento == null) return null!;
 
                 MovimientoClienteReporteGeneralDTOResponse reporteClienteGeneralDTO = new MovimientoClienteReporteGeneralDTOResponse()

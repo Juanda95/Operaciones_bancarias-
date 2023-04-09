@@ -1,8 +1,4 @@
-using BankOperations.Persistence;
-using BankOperations.Persistence.Contexts;
 using BankOperations.Presentation.Handlers;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
 
 namespace BankOperations.Presentation
 {
@@ -14,8 +10,7 @@ namespace BankOperations.Presentation
 
             #region ServiceExtensions            
             ServiceExtensionsHandler.ServiceExtensionsConfig(builder);
-            #endregion
-           
+            #endregion       
             // Add services to the container.
 
             builder.Services.AddControllers();
@@ -24,6 +19,11 @@ namespace BankOperations.Presentation
             builder.Services.AddSwaggerGen();
 
             var app = builder.Build();
+
+            #region migrationsConfig
+            var scopeFactory = app.Services.GetRequiredService<IServiceScopeFactory>();
+            ServiceExtensionsHandler.ServiceExtensionsConfigMigrations(scopeFactory);
+            #endregion
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())

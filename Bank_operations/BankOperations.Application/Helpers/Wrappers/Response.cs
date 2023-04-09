@@ -12,7 +12,7 @@ namespace BankOperations.Application.Helpers.Wrappers
         {
 
         }
-        public Response(T data, string? messages = null)
+        public Response(T data, string messages = null)
         {
             Succeeded = true;
             Messages = messages;
@@ -27,8 +27,8 @@ namespace BankOperations.Application.Helpers.Wrappers
         }
 
         public bool Succeeded { get; set; }
-        public string? Messages { get; set; }
+        public string Messages { get; set; }
         public List<string> Errors { get; set; } = new List<string>();
-        public T? Data { get; set; }
+        public T Data { get; set; }
     }
 }
