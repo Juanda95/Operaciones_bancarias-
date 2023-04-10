@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "0dF/Ox38HfTEvlKABaO3hi3ueiotSUCRmJzLCbw4S/qZekUmlRKxE55J0d401LULINWEYetTtBUksDN1mPj0UQ==",
+  "dgSpecHash": "mRbqel303xSZTdvGuU4Nk1/pk1972GGS3NJxYLuxHGXcD8+mN5RBosrU0qYc//htWUsLAaqI9nYPW8qBPs+wjg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\juan.dmunoz\\Desktop\\Operaciones bancarias nueva app\\Operaciones_bancarias-\\Bank_operations\\BankOperations.Persistence\\BankOperations.Persistence.csproj",
+  "projectFilePath": "C:\\Users\\juan.dmunoz\\Desktop\\Operaciones bancarias nueva app\\Operaciones_bancarias\\Bank_operations\\BankOperations.Persistence\\BankOperations.Persistence.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\juan.dmunoz\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\juan.dmunoz\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

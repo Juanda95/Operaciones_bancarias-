@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\juan.dmunoz\\Desktop\\Operaciones bancarias nueva app\\Operaciones_bancarias-\\Bank_operations\\BankOperations.Domain\\BankOperations.Domain.csproj": {}
+    "C:\\Users\\juan.dmunoz\\Desktop\\Operaciones bancarias nueva app\\Operaciones_bancarias\\Bank_operations\\BankOperations.Domain\\BankOperations.Domain.csproj": {}
   },
   "projects": {
-    "C:\\Users\\juan.dmunoz\\Desktop\\Operaciones bancarias nueva app\\Operaciones_bancarias-\\Bank_operations\\BankOperations.Domain\\BankOperations.Domain.csproj": {
+    "C:\\Users\\juan.dmunoz\\Desktop\\Operaciones bancarias nueva app\\Operaciones_bancarias\\Bank_operations\\BankOperations.Domain\\BankOperations.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\juan.dmunoz\\Desktop\\Operaciones bancarias nueva app\\Operaciones_bancarias-\\Bank_operations\\BankOperations.Domain\\BankOperations.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\juan.dmunoz\\Desktop\\Operaciones bancarias nueva app\\Operaciones_bancarias\\Bank_operations\\BankOperations.Domain\\BankOperations.Domain.csproj",
         "projectName": "BankOperations.Domain",
-        "projectPath": "C:\\Users\\juan.dmunoz\\Desktop\\Operaciones bancarias nueva app\\Operaciones_bancarias-\\Bank_operations\\BankOperations.Domain\\BankOperations.Domain.csproj",
+        "projectPath": "C:\\Users\\juan.dmunoz\\Desktop\\Operaciones bancarias nueva app\\Operaciones_bancarias\\Bank_operations\\BankOperations.Domain\\BankOperations.Domain.csproj",
         "packagesPath": "C:\\Users\\juan.dmunoz\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\juan.dmunoz\\Desktop\\Operaciones bancarias nueva app\\Operaciones_bancarias-\\Bank_operations\\BankOperations.Domain\\obj\\",
+        "outputPath": "C:\\Users\\juan.dmunoz\\Desktop\\Operaciones bancarias nueva app\\Operaciones_bancarias\\Bank_operations\\BankOperations.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

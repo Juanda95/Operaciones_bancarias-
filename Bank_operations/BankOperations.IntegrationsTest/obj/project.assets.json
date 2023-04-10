@@ -6116,11 +6116,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\juan.dmunoz\\Desktop\\Operaciones bancarias nueva app\\Operaciones_bancarias-\\Bank_operations\\BankOperations.IntegrationsTest\\BankOperations.IntegrationsTest.csproj",
+      "projectUniqueName": "C:\\Users\\juan.dmunoz\\Desktop\\Operaciones bancarias nueva app\\Operaciones_bancarias\\Bank_operations\\BankOperations.IntegrationsTest\\BankOperations.IntegrationsTest.csproj",
       "projectName": "BankOperations.IntegrationsTest",
-      "projectPath": "C:\\Users\\juan.dmunoz\\Desktop\\Operaciones bancarias nueva app\\Operaciones_bancarias-\\Bank_operations\\BankOperations.IntegrationsTest\\BankOperations.IntegrationsTest.csproj",
+      "projectPath": "C:\\Users\\juan.dmunoz\\Desktop\\Operaciones bancarias nueva app\\Operaciones_bancarias\\Bank_operations\\BankOperations.IntegrationsTest\\BankOperations.IntegrationsTest.csproj",
       "packagesPath": "C:\\Users\\juan.dmunoz\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\juan.dmunoz\\Desktop\\Operaciones bancarias nueva app\\Operaciones_bancarias-\\Bank_operations\\BankOperations.IntegrationsTest\\obj\\",
+      "outputPath": "C:\\Users\\juan.dmunoz\\Desktop\\Operaciones bancarias nueva app\\Operaciones_bancarias\\Bank_operations\\BankOperations.IntegrationsTest\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

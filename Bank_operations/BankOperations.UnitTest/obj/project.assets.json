@@ -8706,11 +8706,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\juan.dmunoz\\Desktop\\Operaciones bancarias nueva app\\Operaciones_bancarias-\\Bank_operations\\BankOperations.UnitTest\\BankOperations.UnitTest.csproj",
+      "projectUniqueName": "C:\\Users\\juan.dmunoz\\Desktop\\Operaciones bancarias nueva app\\Operaciones_bancarias\\Bank_operations\\BankOperations.UnitTest\\BankOperations.UnitTest.csproj",
       "projectName": "BankOperations.UnitTest",
-      "projectPath": "C:\\Users\\juan.dmunoz\\Desktop\\Operaciones bancarias nueva app\\Operaciones_bancarias-\\Bank_operations\\BankOperations.UnitTest\\BankOperations.UnitTest.csproj",
+      "projectPath": "C:\\Users\\juan.dmunoz\\Desktop\\Operaciones bancarias nueva app\\Operaciones_bancarias\\Bank_operations\\BankOperations.UnitTest\\BankOperations.UnitTest.csproj",
       "packagesPath": "C:\\Users\\juan.dmunoz\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\juan.dmunoz\\Desktop\\Operaciones bancarias nueva app\\Operaciones_bancarias-\\Bank_operations\\BankOperations.UnitTest\\obj\\",
+      "outputPath": "C:\\Users\\juan.dmunoz\\Desktop\\Operaciones bancarias nueva app\\Operaciones_bancarias\\Bank_operations\\BankOperations.UnitTest\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -8732,11 +8732,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\juan.dmunoz\\Desktop\\Operaciones bancarias nueva app\\Operaciones_bancarias-\\Bank_operations\\BankOperations.Application\\BankOperations.Application.csproj": {
-              "projectPath": "C:\\Users\\juan.dmunoz\\Desktop\\Operaciones bancarias nueva app\\Operaciones_bancarias-\\Bank_operations\\BankOperations.Application\\BankOperations.Application.csproj"
+            "C:\\Users\\juan.dmunoz\\Desktop\\Operaciones bancarias nueva app\\Operaciones_bancarias\\Bank_operations\\BankOperations.Application\\BankOperations.Application.csproj": {
+              "projectPath": "C:\\Users\\juan.dmunoz\\Desktop\\Operaciones bancarias nueva app\\Operaciones_bancarias\\Bank_operations\\BankOperations.Application\\BankOperations.Application.csproj"
             },
-            "C:\\Users\\juan.dmunoz\\Desktop\\Operaciones bancarias nueva app\\Operaciones_bancarias-\\Bank_operations\\BankOperations.Presentation\\BankOperations.Presentation.csproj": {
-              "projectPath": "C:\\Users\\juan.dmunoz\\Desktop\\Operaciones bancarias nueva app\\Operaciones_bancarias-\\Bank_operations\\BankOperations.Presentation\\BankOperations.Presentation.csproj"
+            "C:\\Users\\juan.dmunoz\\Desktop\\Operaciones bancarias nueva app\\Operaciones_bancarias\\Bank_operations\\BankOperations.Presentation\\BankOperations.Presentation.csproj": {
+              "projectPath": "C:\\Users\\juan.dmunoz\\Desktop\\Operaciones bancarias nueva app\\Operaciones_bancarias\\Bank_operations\\BankOperations.Presentation\\BankOperations.Presentation.csproj"
             }
           }
         }

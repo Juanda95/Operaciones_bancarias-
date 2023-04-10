@@ -1,0 +1,22 @@
+version: '3.9'  # optional since v1.27.0
+services:
+  mssql:
+    hostname: mssql
+    image: mcr.microsoft.com/mssql/server:latest
+    # user: '0:0'
+    container_name: sqlserver
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=M1st2rPassw0rd
+    ports:
+      - '1433:1433'
+
+  api:
+    hostname: api
+    build: 
+      context: ./Bank_operations  
+      dockerfile: Dockerfile
+    depends_on:
+      - mssql
+    ports:    
+      - '80:80'

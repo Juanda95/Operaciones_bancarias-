@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "IWZb9LATuaNCxbSDX3/WTJhamoAQojUIkCroFSrLPVPPLxdi8XPzvMdwB1QnUB3rZVZ8F/5vbteei2yC1K9xpg==",
+  "dgSpecHash": "URetAbXM3LLotf4kX1Mkegc0qeNxXK/QxXdOPRcOi0B1aAe4x43Dv77MVWzeAzaAD/qvXsUxXXwW4J+2MTNunw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\juan.dmunoz\\Desktop\\Operaciones bancarias nueva app\\Operaciones_bancarias-\\Bank_operations\\BankOperations.Domain\\BankOperations.Domain.csproj",
+  "projectFilePath": "C:\\Users\\juan.dmunoz\\Desktop\\Operaciones bancarias nueva app\\Operaciones_bancarias\\Bank_operations\\BankOperations.Domain\\BankOperations.Domain.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

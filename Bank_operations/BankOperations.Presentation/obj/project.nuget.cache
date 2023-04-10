@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "2Dok4u/GZ7l3DHo1n49DlTOr57nLjVzOiPMzStGLUMmTOuQq3xrXFk0HPG6gfSMEEdB/3Sj9ioeXo2aMbFHSMg==",
+  "dgSpecHash": "/N7zpNlbizT6FWgSz2E20VQXxKiVSU5tA5OwW1Wn6cdm54STo7RdNVrOgb0IBJnZgrsOVbuHn950XFOVJAKDOA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\juan.dmunoz\\Desktop\\Operaciones bancarias nueva app\\Operaciones_bancarias-\\Bank_operations\\BankOperations.Presentation\\BankOperations.Presentation.csproj",
+  "projectFilePath": "C:\\Users\\juan.dmunoz\\Desktop\\Operaciones bancarias nueva app\\Operaciones_bancarias\\Bank_operations\\BankOperations.Presentation\\BankOperations.Presentation.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\juan.dmunoz\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\juan.dmunoz\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",

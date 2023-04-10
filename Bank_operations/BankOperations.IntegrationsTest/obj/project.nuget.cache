@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "2AIyBcCohhU+szXW7HJPZMayJBiCsZKm87pl4ohxkjNmHFffd+0S6lhSzmp3AJaZgr/yN0tgDcpZzrjiqdQbTg==",
+  "dgSpecHash": "MmoZJrjFg1D/8TW1zvD5aT4Rv6J5HhW4owYFAqc6+maqJ7ggvZjnbaBtdoJ0zhwgBoA60tKdKd5GO4RcpD3qwA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\juan.dmunoz\\Desktop\\Operaciones bancarias nueva app\\Operaciones_bancarias-\\Bank_operations\\BankOperations.IntegrationsTest\\BankOperations.IntegrationsTest.csproj",
+  "projectFilePath": "C:\\Users\\juan.dmunoz\\Desktop\\Operaciones bancarias nueva app\\Operaciones_bancarias\\Bank_operations\\BankOperations.IntegrationsTest\\BankOperations.IntegrationsTest.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\juan.dmunoz\\.nuget\\packages\\coverlet.collector\\3.1.2\\coverlet.collector.3.1.2.nupkg.sha512",
     "C:\\Users\\juan.dmunoz\\.nuget\\packages\\microsoft.codecoverage\\17.1.0\\microsoft.codecoverage.17.1.0.nupkg.sha512",
