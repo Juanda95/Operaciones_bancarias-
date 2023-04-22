@@ -2,10 +2,10 @@
 {
     public class Cliente : Persona
     {
-        public string Clienteid { get; set; } = null!;
-        public string Contrasena { get; set; } = null!;
+        public string Clienteid { get; set; }
+        public string Contrasena { get; set; }
         public bool Estado { get; set; }
-        public virtual ICollection<Cuenta> Cuenta { get; } = null!;
-        public virtual ICollection<Movimiento> Movimientos { get; } = null!;
+        public virtual ICollection<Cuenta> Cuenta { get; }
+        public virtual ICollection<Movimiento> Movimientos { get; }
     }
 }

@@ -1,7 +1,5 @@
-﻿using BankOperations.Application.DTOs.Request.Cuenta;
-using BankOperations.Application.DTOs.Request.Movimiento;
+﻿using BankOperations.Application.DTOs.Request.Movimiento;
 using BankOperations.Application.Interface;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BankOperations.Presentation.Controllers

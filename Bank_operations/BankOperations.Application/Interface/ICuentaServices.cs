@@ -1,12 +1,6 @@
-﻿using BankOperations.Application.DTOs.Request.Cliente;
-using BankOperations.Application.DTOs.Request.Cuenta;
+﻿using BankOperations.Application.DTOs.Request.Cuenta;
 using BankOperations.Application.DTOs.Response;
 using BankOperations.Application.Helpers.Wrappers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BankOperations.Application.Interface
 {

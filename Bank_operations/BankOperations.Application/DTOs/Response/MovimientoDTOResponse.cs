@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BankOperations.Application.DTOs.Response
+﻿namespace BankOperations.Application.DTOs.Response
 {
     public class MovimientoDTOResponse
     {
         public DateTime Fecha { get; set; }
 
-        public string TipoMovimiento { get; set; } = null!;
+        public string TipoMovimiento { get; set; }
 
         public int Valor { get; set; }
 

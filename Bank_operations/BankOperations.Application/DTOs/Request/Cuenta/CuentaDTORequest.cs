@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BankOperations.Application.DTOs.Request.Cuenta
 {
@@ -14,13 +9,13 @@ namespace BankOperations.Application.DTOs.Request.Cuenta
         [Required(AllowEmptyStrings = false, ErrorMessage = "El Numero cuenta es requerido")]
         [DisplayFormat(ConvertEmptyStringToNull = false)]
         [MaxLength(50, ErrorMessage = "El numero cuenta debe ser menor a 50 caracteres")]
-        public string NumeroCuenta { get; set; } = null!;
+        public string NumeroCuenta { get; set; }
 
         [DisplayName("Tipo cuenta")]
         [Required(AllowEmptyStrings = false, ErrorMessage = "El tipo cuenta es requerido")]
         [DisplayFormat(ConvertEmptyStringToNull = false)]
         [MaxLength(50, ErrorMessage = "El tipo cuenta debe ser menor a 50 caracteres")]
-        public string TipoCuenta { get; set; } = null!;
+        public string TipoCuenta { get; set; }
 
         [DisplayName("Saldo inicial")]
         [Required(AllowEmptyStrings = false, ErrorMessage = "El saldo inicial es requerido")]

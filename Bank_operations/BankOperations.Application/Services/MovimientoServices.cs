@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using BankOperations.Application.DTOs.Request.Cliente;
 using BankOperations.Application.DTOs.Request.Movimiento;
 using BankOperations.Application.DTOs.Response;
 using BankOperations.Application.Helpers.Exceptions;
@@ -7,6 +6,7 @@ using BankOperations.Application.Helpers.Wrappers;
 using BankOperations.Application.Interface;
 using BankOperations.Domain.Entities;
 using BankOperations.Persistence.UnitOfWork.Interface;
+using Microsoft.EntityFrameworkCore;
 
 namespace BankOperations.Application.Services
 {
@@ -29,37 +29,82 @@ namespace BankOperations.Application.Services
 
         public async Task<Response<int>> CreateMovimientoAsync(MovimientoDTORequest MovimientoRequest)
         {
+            //try
+            //{
+            //    Cuenta cuentaEstadoActual = _unitOfWork.CuentaRepository.FirstOrDefault(x => x.IdCliente.Equals(MovimientoRequest.IdCliente) &&
+            //                                                                        x.Id.Equals(MovimientoRequest.IdCuenta),
+            //                                                                        p => p.Movimientos);
+            //    int SaldoUltimoMovimiento = cuentaEstadoActual?.Movimientos?.OrderByDescending(x => x.Id).FirstOrDefault()?.Saldo ?? 0;
+            //    if (cuentaEstadoActual == null) throw new KeyNotFoundException($"Validar que el cliente y la cuenta solicitados se encuentren registrados.");
+
+            //    int saldoTotal = 0;
+            //    Movimiento nuevaMovimiento = _mapper.Map<Movimiento>(MovimientoRequest);
+
+            //    if (MovimientoRequest.Valor > 0)
+            //    {
+            //        saldoTotal = SaldoUltimoMovimiento + MovimientoRequest.Valor;
+            //        nuevaMovimiento.TipoMovimiento = "Crédito";
+            //    }
+            //    else
+            //    {
+            //        int valorResta = MovimientoRequest.Valor * (-1);
+            //        nuevaMovimiento.TipoMovimiento = "Debito";
+            //        saldoTotal = SaldoUltimoMovimiento - valorResta;
+            //        if (saldoTotal < 0)
+            //        {
+            //            throw new ApiException($"Saldo no disponible");
+            //        }
+            //    }
+            //    nuevaMovimiento.Saldo = saldoTotal;
+
+            //    Movimiento movimiento = _unitOfWork.MovimientoRepository.Add(nuevaMovimiento);
+            //    bool save = await _unitOfWork.Save() > 0;
+            //    return save ? new Response<int>(movimiento.Id) : throw new Exception($"A ocurrido un error en el proceso de guardado");
+            //}
+            //catch (KeyNotFoundException)
+            //{
+            //    throw;
+            //}
+            //catch (ApiException)
+            //{
+            //    throw;
+            //}
+            //catch (Exception)
+            //{
+            //    // Auditoria de errores 
+            //    throw;
+            //}
+
             try
             {
-                Cuenta cuentaEstadoActual = _unitOfWork.CuentaRepository.FirstOrDefault(x => x.IdCliente.Equals(MovimientoRequest.IdCliente) &&
-                                                                                    x.Id.Equals(MovimientoRequest.IdCuenta),
-                                                                                    p => p.Movimientos);
-                int SaldoUltimoMovimiento = cuentaEstadoActual?.Movimientos?.OrderByDescending(x => x.Id).FirstOrDefault()?.Saldo ?? 0;
-                if (cuentaEstadoActual == null) throw new KeyNotFoundException($"Validar que el cliente y la cuenta solicitados se encuentren registrados.");
+                var cuenta = _unitOfWork.CuentaRepository
+                    .SingleOrDefault(c => c.IdCliente == MovimientoRequest.IdCliente && c.Id == MovimientoRequest.IdCuenta, c => c.Movimientos);
 
-                int saldoTotal = 0;
-                Movimiento nuevaMovimiento = _mapper.Map<Movimiento>(MovimientoRequest);
+                if (cuenta == null) throw new KeyNotFoundException("Validar que el cliente y la cuenta solicitados se encuentren registrados.");
+                
+                var ultimoSaldo = cuenta.Movimientos?.OrderByDescending(m => m.Id)?.FirstOrDefault()?.Saldo ?? 0;
+                var nuevoMovimiento = _mapper.Map<Movimiento>(MovimientoRequest);
 
                 if (MovimientoRequest.Valor > 0)
                 {
-                    saldoTotal = SaldoUltimoMovimiento + MovimientoRequest.Valor;
-                    nuevaMovimiento.TipoMovimiento = "Crédito";
+                    nuevoMovimiento.TipoMovimiento = "Crédito";
+                    nuevoMovimiento.Saldo = ultimoSaldo + MovimientoRequest.Valor;
                 }
                 else
                 {
-                    int valorResta = MovimientoRequest.Valor * (-1);
-                    nuevaMovimiento.TipoMovimiento = "Debito";
-                    saldoTotal = SaldoUltimoMovimiento - valorResta;
-                    if (saldoTotal < 0)
-                    {
-                        throw new ApiException($"Saldo no disponible");
-                    }
-                }
-                nuevaMovimiento.Saldo = saldoTotal;
+                    var valorResta = MovimientoRequest.Valor * (-1);
+                    nuevoMovimiento.TipoMovimiento = "Debito";
+                    var nuevoSaldo = ultimoSaldo - valorResta;
 
-                Movimiento movimiento = _unitOfWork.MovimientoRepository.Add(nuevaMovimiento);
-                bool save = await _unitOfWork.Save() > 0;
-                return save ? new Response<int>(movimiento.Id) : throw new Exception($"A ocurrido un error en el proceso de guardado");
+                    if (nuevoSaldo < 0) throw new ApiException("Saldo no disponible");                    
+
+                    nuevoMovimiento.Saldo = nuevoSaldo;
+                }
+
+                var movimiento = _unitOfWork.MovimientoRepository.Add(nuevoMovimiento);
+                var save = await _unitOfWork.Save() > 0;
+
+                return save ? new Response<int>(movimiento.Id) : throw new DbUpdateException("A ocurrido un error en el proceso de guardado");
             }
             catch (KeyNotFoundException)
             {
@@ -75,6 +120,7 @@ namespace BankOperations.Application.Services
                 throw;
             }
         }
+
 
         public async Task<Response<int>> DeleteMovimientoAsync(int Id)
         {
