@@ -1,5 +1,5 @@
 ﻿using BankOperations.Application.DTOs.Request.Movimiento;
-using BankOperations.Application.Interface;
+using BankOperations.Application.Services.Interface;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BankOperations.Presentation.Controllers
@@ -30,10 +30,31 @@ namespace BankOperations.Presentation.Controllers
         }
 
         // GET REPORTE GENERAL
-        [HttpGet("GetMovimientoClieneteGenetal/{id}/{FechaIni}/{FechaFin}")]
-        public IActionResult GetMovimientoGeneralCliente(int id, DateTime FechaIni, DateTime FechaFin)
+        [HttpGet("GetUltimoMovimientoClieneteGenetal/{id}/{fechaIni}/{fechaFin}")]
+        public async Task<IActionResult> GetUltimoMovimientoGeneralCliente(int id, DateTime fechaIni, DateTime fechaFin)
         {
-            return Ok(_movimientoServices.GetReporteClienteGeneral( new ReporteGeneralMovimientoClienteDTORequest { ClienteId = id, FechaInicial = FechaIni, FechaFinal = FechaFin }));
+            return Ok(
+                await _movimientoServices.GetUltimoReporteClienteGeneral(
+                    new ReporteGeneralMovimientoClienteDTORequest
+                    {
+                        ClienteId = id,
+                        FechaInicial = fechaIni,
+                        FechaFinal = fechaFin
+                    }));
+        }
+
+        // GET REPORTE GENERAL
+        [HttpGet("GetMovimientoClieneteGenetal/{id}/{fechaIni}/{fechaFin}")]
+        public IActionResult GetMovimientoGeneralCliente(int id, DateTime fechaIni, DateTime fechaFin)
+        {
+            return Ok(
+                 _movimientoServices.GetReporteClienteGeneral(
+                    new ReporteGeneralMovimientoClienteDTORequest
+                    {
+                        ClienteId = id,
+                        FechaInicial = fechaIni,
+                        FechaFinal = fechaFin
+                    }));
         }
 
         // GET ALL
@@ -47,18 +68,18 @@ namespace BankOperations.Presentation.Controllers
         // POST
         [HttpPost]
         [Route("InsertMovimiento")]
-        public async Task<IActionResult> InsertMovimiento(MovimientoDTORequest MovimientoRequest)
+        public async Task<IActionResult> InsertMovimiento(MovimientoDTORequest movimientoRequest)
         {
-            return Ok(await _movimientoServices.CreateMovimientoAsync(MovimientoRequest));
+            return Ok(await _movimientoServices.CreateMovimientoAsync(movimientoRequest));
         }
 
         //PUT 
         [HttpPut]
         [Route("UpdateMovimiento")]
-        public async Task<IActionResult> UpdateCuenta(MovimientoDTOUpdateRequest MovimientoUpdateRequest)
+        public async Task<IActionResult> UpdateCuenta(MovimientoDTOUpdateRequest movimientoUpdateRequest)
         {
 
-            return Ok(await _movimientoServices.UpdateMovimientoAsync(MovimientoUpdateRequest));
+            return Ok(await _movimientoServices.UpdateMovimientoAsync(movimientoUpdateRequest));
 
         }
 

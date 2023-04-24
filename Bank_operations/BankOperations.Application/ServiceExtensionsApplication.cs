@@ -1,5 +1,5 @@
-﻿using BankOperations.Application.Interface;
-using BankOperations.Application.Services;
+﻿using BankOperations.Application.Services;
+using BankOperations.Application.Services.Interface;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 

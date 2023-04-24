@@ -2,9 +2,9 @@
 using BankOperations.Application.DTOs.Response;
 using BankOperations.Application.Helpers.Wrappers;
 
-namespace BankOperations.Application.Interface
+namespace BankOperations.Application.Services.Interface
 {
-    public  interface IClienteServices
+    public interface IClienteServices
     {
         Response<List<ClienteDTOResponse>> GetClienteAll();
         Response<ClienteDTOResponse> GetClienteById(int Id);

@@ -1,5 +1,5 @@
 ﻿using BankOperations.Application.DTOs.Request.Cuenta;
-using BankOperations.Application.Interface;
+using BankOperations.Application.Services.Interface;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BankOperations.Presentation.Controllers
@@ -40,18 +40,18 @@ namespace BankOperations.Presentation.Controllers
         // POST
         [HttpPost]
         [Route("InsertCuenta")]
-        public async Task<IActionResult> InsertCuenta(CuentaDTORequest CuentaRequest)
+        public async Task<IActionResult> InsertCuenta(CuentaDTORequest cuentaRequest)
         {
-            return Ok(await _cuentaServices.CreateCuentaAsync(CuentaRequest));
+            return Ok(await _cuentaServices.CreateCuentaAsync(cuentaRequest));
         }
 
         //PUT 
         [HttpPut]
         [Route("UpdateCuenta")]
-        public async Task<IActionResult> UpdateCuenta(CuentaDTOUpdateRequest CuentaUpdateRequest)
+        public async Task<IActionResult> UpdateCuenta(CuentaDTOUpdateRequest cuentaUpdateRequest)
         {
 
-            return Ok(await _cuentaServices.UpdateCuentaAsync(CuentaUpdateRequest));
+            return Ok(await _cuentaServices.UpdateCuentaAsync(cuentaUpdateRequest));
 
         }
 

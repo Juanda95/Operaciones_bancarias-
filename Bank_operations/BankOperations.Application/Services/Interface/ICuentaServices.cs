@@ -2,7 +2,7 @@
 using BankOperations.Application.DTOs.Response;
 using BankOperations.Application.Helpers.Wrappers;
 
-namespace BankOperations.Application.Interface
+namespace BankOperations.Application.Services.Interface
 {
     public interface ICuentaServices
     {
@@ -12,4 +12,4 @@ namespace BankOperations.Application.Interface
         Task<Response<int>> DeleteCuentaAsync(int Id);
         Task<Response<int>> UpdateCuentaAsync(CuentaDTOUpdateRequest CuentaUpdateRequest);
     }
-} 
+}

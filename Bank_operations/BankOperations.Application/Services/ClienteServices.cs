@@ -2,7 +2,7 @@
 using BankOperations.Application.DTOs.Request.Cliente;
 using BankOperations.Application.DTOs.Response;
 using BankOperations.Application.Helpers.Wrappers;
-using BankOperations.Application.Interface;
+using BankOperations.Application.Services.Interface;
 using BankOperations.Domain.Entities;
 using BankOperations.Persistence.UnitOfWork.Interface;
 
@@ -24,125 +24,75 @@ namespace BankOperations.Application.Services
         #endregion
 
         #region Methods
-        public async Task<Response<bool>> CreateClienteAsync(ClienteDTORequest ClienteRequest)
+        public async Task<Response<bool>> CreateClienteAsync(ClienteDTORequest clienteRequest)
         {
-            try
-            {
-                Cliente nuevoCliente = _mapper.Map<Cliente>(ClienteRequest);
-                 _unitOfWork.ClienteRepository.Insert(nuevoCliente);
-                bool save = await _unitOfWork.Save() > 0;
-                return save ? new Response<bool>(save) : throw new Exception($"Acurrido un error en el proceso de guardado");
-            }
-            catch (Exception)
-            {
-                //crear auditoria 
-                throw ;
-            }
-
+            Cliente nuevoCliente = _mapper.Map<Cliente>(clienteRequest);
+            _unitOfWork.ClienteRepository.Insert(nuevoCliente);
+            bool save = await _unitOfWork.Save() > 0;
+            return save ? new Response<bool>(save) :
+                throw new Exception($"Acurrido un error en el proceso de guardado");
         }
 
-        public async Task<Response<int>> DeleteClienteAsync(int Id)
+        public async Task<Response<int>> DeleteClienteAsync(int id)
         {
-          
-            try
+            Cliente cliente = _unitOfWork.ClienteRepository.FirstOrDefault(x => x.Id.Equals(id));
+
+            if (cliente == null)
             {
-                Cliente Cliente = _unitOfWork.ClienteRepository.FirstOrDefault(x => x.Id.Equals(Id));
-
-                if (Cliente == null)
-                {
-                    throw new KeyNotFoundException($"Registro no encontrado con el id {Id}");
-                }
-                else
-                {
-                    _unitOfWork.ClienteRepository.Delete(Id);
-                    bool save = await _unitOfWork.Save() > 0;
-                    return save ? new Response<int>(Id) : throw new Exception($"Acurrido un error en el proceso de Eliminado por favor intente de nuevo");
-
-                }
+                throw new KeyNotFoundException($"Registro no encontrado con el id {id}");
+            }
+            else
+            {
+                _unitOfWork.ClienteRepository.Delete(id);
+                bool save = await _unitOfWork.Save() > 0;
+                return save ? new Response<int>(id) :
+                    throw new Exception($"Acurrido un error en el proceso de Eliminado por favor intente de nuevo");
 
             }
-            catch (KeyNotFoundException)
-            {
-                throw;
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-
         }
 
         public Response<List<ClienteDTOResponse>> GetClienteAll()
         {
-            try
-            {
-                List<Cliente> Clientes = _unitOfWork.ClienteRepository.GetAll().ToList();
-                List<ClienteDTOResponse> clientesDTO = _mapper.Map<List<ClienteDTOResponse>>(Clientes);
-                return new Response<List<ClienteDTOResponse>>(clientesDTO);
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
+            List<Cliente> clientes = _unitOfWork.ClienteRepository.GetAll().ToList();
+            List<ClienteDTOResponse> clientesDTO = _mapper.Map<List<ClienteDTOResponse>>(clientes);
+            return new Response<List<ClienteDTOResponse>>(clientesDTO);
         }
 
-        public Response<ClienteDTOResponse> GetClienteById(int Id)
+        public Response<ClienteDTOResponse> GetClienteById(int id)
         {
-            try
+            Cliente cliente = _unitOfWork.ClienteRepository.FirstOrDefault(x => x.Id.Equals(id));
+            if (cliente == null)
             {
-                Cliente cliente = _unitOfWork.ClienteRepository.FirstOrDefault(x => x.Id.Equals(Id));
-                if (cliente == null)
-                {
-                    throw new KeyNotFoundException($"Registro no encontrado con el id {Id}");
-                }
-                else
-                {
-                    ClienteDTOResponse ClienteDto = _mapper.Map<ClienteDTOResponse>(cliente);
-                    return new Response<ClienteDTOResponse>(ClienteDto);
-                }
+                throw new KeyNotFoundException($"Registro no encontrado con el id {id}");
             }
-            catch (KeyNotFoundException)
+            else
             {
-                throw;
+                ClienteDTOResponse clienteDto = _mapper.Map<ClienteDTOResponse>(cliente);
+                return new Response<ClienteDTOResponse>(clienteDto);
             }
-            catch (Exception)
-            {
-
-                throw;
-            }
-
         }
 
-        public async Task<Response<int>> UpdateClienteAsync(ClienteDTOUpdateRequest ClienteUpdateRequest)
+        public async Task<Response<int>> UpdateClienteAsync(ClienteDTOUpdateRequest clienteUpdateRequest)
         {
-            try
+
+            Cliente cliente = _unitOfWork.ClienteRepository.FirstOrDefault(x => x.Id.Equals(clienteUpdateRequest.Id));
+
+            if (cliente == null)
             {
-                Cliente Cliente = _unitOfWork.ClienteRepository.FirstOrDefault(x => x.Id.Equals(ClienteUpdateRequest.Id));
-
-                if (Cliente == null)
-                {
-                    throw new KeyNotFoundException($"Registro no encontrado con el id {ClienteUpdateRequest.Id}");
-                }
-                else
-                {
-                     Cliente = _mapper.Map<Cliente>(ClienteUpdateRequest);
-
-                    _unitOfWork.ClienteRepository.Update(Cliente);
-
-                    bool save = await _unitOfWork.Save() > 0;
-                    return save ? new Response<int>(Cliente.Id) : throw new Exception($"Acurrido un error en el proceso de Actualizacion intente nuevamente");
-                }
+                throw new KeyNotFoundException($"Registro no encontrado con el id {clienteUpdateRequest.Id}");
             }
-            catch (Exception)
+            else
             {
+                cliente = _mapper.Map<Cliente>(clienteUpdateRequest);
 
-                throw ;
+                _unitOfWork.ClienteRepository.Update(cliente);
+
+                bool save = await _unitOfWork.Save() > 0;
+                return save ? new Response<int>(cliente.Id) :
+                    throw new Exception($"Acurrido un error en el proceso de Actualizacion intente nuevamente");
             }
-
         }
-
-        #endregion
-
     }
+    #endregion
 }
+

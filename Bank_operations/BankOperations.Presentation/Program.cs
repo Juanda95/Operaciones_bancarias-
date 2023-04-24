@@ -1,4 +1,5 @@
 using BankOperations.Presentation.Handlers;
+using Serilog;
 
 namespace BankOperations.Presentation
 {
@@ -7,6 +8,15 @@ namespace BankOperations.Presentation
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+
+            #region LogsSerilog
+            var logger = new LoggerConfiguration()
+                .ReadFrom.Configuration(builder.Configuration)
+                .Enrich.FromLogContext()
+                .CreateLogger();
+            builder.Logging.ClearProviders();
+            builder.Logging.AddSerilog(logger);
+            #endregion
 
             #region ServiceExtensions            
             ServiceExtensionsHandler.ServiceExtensionsConfig(builder);

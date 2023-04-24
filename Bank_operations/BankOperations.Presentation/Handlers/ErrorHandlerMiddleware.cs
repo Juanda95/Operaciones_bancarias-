@@ -1,5 +1,6 @@
 ﻿using BankOperations.Application.Helpers.Exceptions;
 using BankOperations.Application.Helpers.Wrappers;
+using Microsoft.Extensions.Logging;
 using System.Net;
 using System.Text.Json;
 
@@ -9,10 +10,11 @@ namespace BankOperations.Presentation.Handlers
     {
 
         private readonly RequestDelegate _requestDelegate;
-
-        public ErrorHandlerMiddleware(RequestDelegate requestDelegate)
+        private readonly ILogger<ErrorHandlerMiddleware> _logger;
+        public ErrorHandlerMiddleware(RequestDelegate requestDelegate, ILogger<ErrorHandlerMiddleware> logger)
         {
             _requestDelegate = requestDelegate;
+            _logger = logger;
         }
 
         public async Task Invoke(HttpContext context)
@@ -40,6 +42,7 @@ namespace BankOperations.Presentation.Handlers
                     default:
                         // auditoria
                         // unhandled error
+                        _logger.LogError(error.ToString());
                         response.StatusCode = (int)HttpStatusCode.InternalServerError;
                         break;
 

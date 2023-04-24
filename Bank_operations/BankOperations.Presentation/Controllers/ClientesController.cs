@@ -1,5 +1,5 @@
 ﻿using BankOperations.Application.DTOs.Request.Cliente;
-using BankOperations.Application.Interface;
+using BankOperations.Application.Services.Interface;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BankOperations.Presentation.Controllers
@@ -40,18 +40,18 @@ namespace BankOperations.Presentation.Controllers
         // POST
         [HttpPost]
         [Route("InsertCliente")]
-        public async Task<IActionResult> InsertCliente(ClienteDTORequest ClienteRequest)
+        public async Task<IActionResult> InsertCliente(ClienteDTORequest clienteRequest)
         {
-            return Ok(await _clienteServices.CreateClienteAsync(ClienteRequest));
+            return Ok(await _clienteServices.CreateClienteAsync(clienteRequest));
         }
 
         //PUT 
         [HttpPut]
         [Route("UpdateCliente")]
-        public async Task<IActionResult> UpdateCliente(ClienteDTOUpdateRequest ClienteUpdateRequest)
+        public async Task<IActionResult> UpdateCliente(ClienteDTOUpdateRequest clienteUpdateRequest)
         {
 
-            return Ok(await _clienteServices.UpdateClienteAsync(ClienteUpdateRequest));
+            return Ok(await _clienteServices.UpdateClienteAsync(clienteUpdateRequest));
 
         }
 
